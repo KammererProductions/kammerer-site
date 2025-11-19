@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kammererwebsite-dev-ba978-authRole",
+      "UnauthRoleArn": "arn:aws:iam::241533142205:role/amplify-kammererwebsite-dev-ba978-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::241533142205:role/amplify-kammererwebsite-dev-ba978-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kammererwebsite-dev-ba978-deployment",
+      "UnauthRoleName": "amplify-kammererwebsite-dev-ba978-unauthRole",
+      "StackName": "amplify-kammererwebsite-dev-ba978",
+      "StackId": "arn:aws:cloudformation:us-east-1:241533142205:stack/amplify-kammererwebsite-dev-ba978/5d0e2490-bb6e-11f0-bdf8-0affdaba53c5",
+      "AmplifyAppId": "d21mw4d35smgoc"
+    },
+    "categories": {
+      "auth": {
+        "kammererwebsite003087df": {}
+      },
+      "api": {
+        "kammererwebsite": {}
+      },
+      "geo": {
+        "Kamerersearch": {}
+      },
+      "storage": {
+        "kammererfacilities": {}
+      }
+    }
+  }
+}

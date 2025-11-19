@@ -1,0 +1,82 @@
+enum EventType {
+  INDOOR_TRACK
+  OUTDOOR_TRACK
+  CROSS_COUNTRY
+}
+
+enum EventStatus {
+  SCHEDULED
+  COMING_UP
+  LIVE
+  COMPLETED
+}
+
+type Event @model @auth(rules: [{ allow: owner }, { allow: groups, groups: ["Admins"] }]) {
+  id: ID!
+  name: String!
+  startDateTime: AWSDateTime!
+  endDateTime: AWSDateTime!
+  eventType: EventType!
+  status: EventStatus
+  timeZone: String!  # ← STILL REQUIRED, but auto-filled
+  meetInfoUrl: String
+  showMeetInfo: Boolean
+  scheduleUrl: String
+  showSchedule: Boolean
+  entriesUrl: String
+  showEntries: Boolean
+  registrationUrl: String
+  showRegistration: Boolean
+  liveResultsUrl: String
+  showLiveResults: Boolean
+  pdfResultsUrl: String
+  showPdfResults: Boolean
+  tfrrsResultsUrl: String
+  showTfrrsResults: Boolean
+  startListsUrl: String  # ← NEW
+  showStartLists: Boolean  # ← NEW
+  notes: String
+  isPublic: Boolean
+  featured: Boolean
+  frontPageOrder: Int
+  facility: Facility @hasOne(fields: ["facilityID"])
+  facilityID: ID!
+  eventLogo: String
+  client: Client @hasOne(fields: ["clientID"])
+  clientID: ID
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+enum FacilityType {
+  INDOOR_TRACK
+  OUTDOOR_TRACK
+  CROSS_COUNTRY_COURSE
+}
+
+type Facility @model @auth(rules: [{ allow: owner }, { allow: groups, groups: ["Admins"] }]) {
+  id: ID!
+  name: String!
+  address: String
+  city: String
+  state: String
+  zipcode: String
+  latitude: Float
+  longitude: Float
+  facilityType: String!
+  logos: [String]
+  description: String
+  timeZone: String  
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+type Client @model @auth(rules: [{ allow: owner }, { allow: groups, groups: ["Admins"] }]) {
+  id: ID!
+  companyName: String!
+  companyWebsite: String
+  companyDescription: String
+  logo: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
